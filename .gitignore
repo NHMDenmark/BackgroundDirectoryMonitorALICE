@@ -1,0 +1,17 @@
+__pycache__
+.DS_Store
+.vscode
+venv
+*.json
+*.tif
+*.jpg
+*.txt
+*.env
+*.out
+*.spec
+.idea/
+dist/
+build/
+*.egg-info/
+!requirements.txt
+!LICENSE.txt
