@@ -35,7 +35,7 @@ class BatchFileHandler(FileSystemEventHandler):
 
         file_name = os.path.basename(event.src_path)
 
-        # Skip files with "calibration" in the name
+        # Skip files with "calibration" as name
         if "calibration" in file_name.lower():
             return
 
