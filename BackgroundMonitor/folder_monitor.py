@@ -11,7 +11,13 @@ from PIL import Image
 import tkinter as tk
 from tkinter import messagebox, filedialog
 
-CONFIG_FILE = "config.json"
+def get_config_path():
+    app_data = os.getenv("APPDATA")  # C:\Users\<User>\AppData\Roaming
+    app_folder = os.path.join(app_data, "FolderMonitor")
+    os.makedirs(app_folder, exist_ok=True)
+    return os.path.join(app_folder, "config.json")
+
+CONFIG_FILE = get_config_path()
 
 class BatchFileHandler(FileSystemEventHandler):
     def __init__(self, alert_callback):
@@ -83,7 +89,7 @@ def load_config():
     if os.path.exists(CONFIG_FILE):
         with open(CONFIG_FILE, "r") as f:
             return json.load(f)
-    return {"folder": ""}
+    return {}
 
 def save_config(config):
     with open(CONFIG_FILE, "w") as f:
