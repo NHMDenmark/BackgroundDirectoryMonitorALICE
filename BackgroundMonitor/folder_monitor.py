@@ -29,7 +29,7 @@ class BatchFileHandler(FileSystemEventHandler):
         self.lock = threading.Lock()
 
     def start_timer(self):
-        time.sleep(5)
+        time.sleep(12)
         with self.lock:
             if self.batch_prefix is not None and self.batch_count != 7:
                 self.alert_callback(self.batch_prefix, self.batch_count)
